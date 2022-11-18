@@ -1,16 +1,29 @@
-# seNAME OF PROJECT
+# PROJECT PROPOSAL 
 
--   Authors: Crystal, Renzo, Daniel, and Nabi
+## Contributors
+
+-   Mohammad Reza Nabizadeh
+
+-   Crystal Geng
+
+-   Renzo Winjgaarden
+
+```{=html}
+<!-- -->
+```
+-   Daniel Cairns
 
 Our data analysis project for DSCI 522 as part of the Master of Data Science program at UBC.
 
-## About
+## Introduction
 
 We want to do {X} on dataset {Y} to determine {Z}. **Research Question goes here**
 
 ## Usage
 
-Help TAs access our stuff
+The analysis can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project:
+
+    Rscript pull_data.R --file_path="/data/raw/euro_vision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"
 
 ## Dependecies
 

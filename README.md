@@ -1,4 +1,4 @@
-# PROJECT PROPOSAL 
+# PROJECT PROPOSAL
 
 ## Contributors
 
@@ -44,4 +44,4 @@ The materials of this project are licensed under the MIT License. If re-using/re
 
 ## References
 
-*Source of our data goes here*
+*Source of our data goes*

@@ -8,9 +8,6 @@
 
 -   Renzo Winjgaarden
 
-```{=html}
-<!-- -->
-```
 -   Daniel Cairns
 
 Our data analysis project for DSCI 522 as part of the Master of Data Science program at UBC.

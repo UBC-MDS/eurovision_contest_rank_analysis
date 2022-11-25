@@ -52,7 +52,7 @@ The analysis can be reproduced by cloning the GitHub repository, installing the 
 Download the data by running `pull_data.R`: \
 `--file_path` should be the path where the data will be saved, \
 `--url` should be the link to the data. \
-`Rscript pull_data.R --file_path="../data/raw/euro_vision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"`
+`Rscript pull_data.R --file_path="../data/raw/eurovision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"`
 
 Create the exploratory analysis plots and save them by running `eurovision_eda.py`: \
 `--input_path` should be the file path to the raw data, \
@@ -62,7 +62,7 @@ Create the exploratory analysis plots and save them by running `eurovision_eda.p
 Pre-process the data by running `eurovision_preprocessing.py`: \
 `--input_path` should be the file path to the data being pre-processed, \
 `--output_path` the file path to where the pre-processed data will be saved. \
-`python eurovision_preprocessing.py --input_path="../data/raw/euro_vision.csv" --output_path="../data/preprocessed/eurovision_data_preprocessed.csv"`
+`python eurovision_preprocessing.py --input_path="../data/raw/eurovision.csv" --output_path="../data/preprocessed/eurovision_data_preprocessed.csv"`
 
 Run the analysis by running `eurovision_inferential_analysis.R`: \
 `--input_path` should be the file path to the pre-processed data, \

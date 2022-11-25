@@ -6,7 +6,7 @@
 
 -   Crystal Geng
 
--   Renzo Winjgaarden
+-   Renzo Wijngaarden
 
 -   Daniel Cairns
 
@@ -56,7 +56,17 @@ Our analysis will be conducted using Python in VS Code or Jupyter notebook where
 
 The analysis can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project:
 
-    Rscript pull_data.R --file_path="/data/raw/euro_vision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"
+    # Download the data by running 'pull_data.R': --file_path should be the path where the data will be saved, and --url the link to the data.
+    Rscript pull_data.R --file_path="../data/raw/euro_vision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"
+
+    # Create the exploratory analysis plots and save them by running 'eurovision_eda.py': --input_path should be the file path to the raw data, --output_dir should be the path to the directory where the plots will be saved.
+    python eurovision_eda.py --input_file="../data/raw/eurovision.csv" --output_dir="eda_data/figures"
+
+    # Pre-process the data by running 'eurovision_preprocessing.py': --input_path should be the file path to the data being pre-processed, and --output_path the file path to where the pre-processed data will be saved.
+    python eurovision_preprocessing.py --input_path="../data/raw/euro_vision.csv" --output_path="../data/preprocessed/eurovision_data_preprocessed.csv"
+
+    # Run the analysis by running '########': --input_path should be the file path to the pre-processed data, --output_path should be the the file path to where the Rmd file will be saved.
+    Rscript ######## --input_path="../data/preprocessed/eurovision_data_preprocessed.csv" --output_path="../doc/########.Rmd"
 
 ## Dependecies
 

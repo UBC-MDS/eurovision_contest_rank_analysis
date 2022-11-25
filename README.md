@@ -2,13 +2,13 @@
 
 ## Contributors
 
--   Mohammad Reza Nabizadeh
+- Mohammad Reza Nabizadeh
 
--   Crystal Geng
+- Crystal Geng
 
--   Renzo Wijngaarden
+- Renzo Wijngaarden
 
--   Daniel Cairns
+- Daniel Cairns
 
 Our data analysis project for DSCI 522 as part of the Master of Data Science program at the University of British Columbia.
 
@@ -18,35 +18,28 @@ Eurovision is an annual singing contest that takes place in Europe where each pa
 
 In this project, we are going to explore if there is any association between the running order and the rank of a contestant in Eurovision. Does the country that performs the last rank higher than the country that performs the first? We are interested in this question because order can potentially have a large effect on the outcome of a competition. For instance, Glejser and Heyndels (2001) have shown that the contestants who perform later tend to gain a higher rank from the jury in the Queen Elisabeth Contest. This question is crucial because it is related to the bias in voting and fairness of competitions.
 
-## Dataset 
+## Dataset
 
 The dataset we use in this project is retrieved from the [Tidy Tuesday Public Repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-05-17), and the original data was sourced from the [Eurovision Song Contenst Official Website](https://eurovision.tv/). The data was further cleaned up and scraped by Tanya Shapiro and Bob Rudis and contributed to the Tidy Tuesday Repository.
 
-## Proposed Data Analysis
-
-In order to answer the inferential question above, we are going to conduct various statistical analyses including a two-sample t-test, pearson correlation coefficient analysis and linear regression. To carry out the t-test, we will first carry out a hypothesis testing, where the null hypothesis is that the mean rank is the same for the first ten countries that perform and the last ten countries that perform, and the alternative hypothesis is that the mean rank of the last ten countries that perform is higher (the rank index is smaller) than the first ten countries that perform.
-
-Since the dataset contains the data for each country from 1956 to 2022, we are able to select the countries with the least ten running orders and the countries with the most ten running orders and calculate their respective mean ranks across all the years. The purpose of selecting only the top and last ten countries to perform every year, instead of dividing all the countries into two groups is to avoid ambiguity in classification. For instance, if there are 60 countries in total and they are divided into two separate groups called "countries that perform first" and "countries that perform last", the 30th country will be classified as "countries that perform first" and the 31st country will be classified as "countries that perform last", but in fact their running orders are next to each other in the middle and it would not be a sensible choice to classify them differently.
-
-We will also apply a pearson correlation coefficient analysis as well as a simple linear regression model to measure the linear correlation between the running order and the rank. For these analyses, we will not need to separate the countries into two groups according to their running orders since we will treat their running orders as continuous variables.
-
 ## EDA
 
-In our exploratory data analysis, we will include the following tables and figures:
+In our exploratory data analysis, we will include the following figures:
 
-**Tables:**
+-   A pair-wise correlation of all the numeric columns in the dataset
+-   A heatmap of missing values for each column in the dataset
 
--   A data dictionary showing a brief description on data structure
+## Proposed Data Analysis
 
-**Figures:**
+From our EDA we determined, by looking at the correlation plot for running order and resulting rank, that there didn't appear to be a strong correlation between these two variables.
 
-- A Pearson's r correlation plot showing the correlations between all numeric features in the dataset
+In order to answer the inferential question above, we are looking to conduct various t-tests. To carry out the t-test, we will first carry out the following two hypothesis tests:
 
-- A dendogram showing missing values in the dataset for numeric values
+Firstly, the null hypothesis is defined such that the mean rank of countries not performing first is the same as countries performing first, and the alternative hypothesis is that the mean rank of countries not performing first is different from the mean rank of countries performing first.
 
-- The assurance of the null values in the dataset
+Next, we look at the last performance of the night. We define the null hypothesis such that the mean rank of countries not performing last is the same as countries performing last, and the alternative hypothesis is that the mean rank of countries not performing last is different from the mean rank of countries performing last.
 
-- A pair-wise correlation of all the numeric values in the dataset
+Since the dataset contains the results for both the semi-finals and the grand-finals, we next look to see if there's a difference between these shows. We separate results from these categories, and carry out the same hypothesis tests.
 
 ## Sharing the Results 
 

@@ -40,13 +40,13 @@ In our exploratory data analysis, we will include the following tables and figur
 
 **Figures:**
 
--   A Pearson's r correlation plot showing the correlations between all numeric features in the dataset
+- A Pearson's r correlation plot showing the correlations between all numeric features in the dataset
 
--   A dendogram showing missing values in the dataset for numeric values
+- A dendogram showing missing values in the dataset for numeric values
 
--   The assurance of the null values in the dataset
+- The assurance of the null values in the dataset
 
--   A pair-wise correlation of all the numeric values in the dataset
+- A pair-wise correlation of all the numeric values in the dataset
 
 ## Sharing the Results 
 
@@ -54,39 +54,48 @@ Our analysis will be conducted using Python in VS Code or Jupyter notebook where
 
 ## Usage
 
-The analysis can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project:
+The analysis can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project: 
 
-    # Download the data by running 'pull_data.R': --file_path should be the path where the data will be saved, and --url the link to the data.
-    Rscript pull_data.R --file_path="../data/raw/euro_vision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"
+Download the data by running `pull_data.R`: \
+`--file_path` should be the path where the data will be saved, \
+`--url` should be the link to the data. \
+`Rscript pull_data.R --file_path="../data/raw/euro_vision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"`
 
-    # Create the exploratory analysis plots and save them by running 'eurovision_eda.py': --input_path should be the file path to the raw data, --output_dir should be the path to the directory where the plots will be saved.
-    python eurovision_eda.py --input_file="../data/raw/eurovision.csv" --output_dir="eda_data/figures"
+Create the exploratory analysis plots and save them by running `eurovision_eda.py`: \
+`--input_path` should be the file path to the raw data, \
+`--output_dir` should be the path to the directory where the plots will be saved. \
+`python eurovision_eda.py --input_file="../data/raw/eurovision.csv" --output_dir="eda_data/figures"`
 
-    # Pre-process the data by running 'eurovision_preprocessing.py': --input_path should be the file path to the data being pre-processed, and --output_path the file path to where the pre-processed data will be saved.
-    python eurovision_preprocessing.py --input_path="../data/raw/euro_vision.csv" --output_path="../data/preprocessed/eurovision_data_preprocessed.csv"
+Pre-process the data by running `eurovision_preprocessing.py`: \
+`--input_path` should be the file path to the data being pre-processed, \
+`--output_path` the file path to where the pre-processed data will be saved. \
+`python eurovision_preprocessing.py --input_path="../data/raw/euro_vision.csv" --output_path="../data/preprocessed/eurovision_data_preprocessed.csv"`
 
-    # Run the analysis by running '########': --input_path should be the file path to the pre-processed data, --output_path should be the the file path to where the Rmd file will be saved.
-    Rscript ######## --input_path="../data/preprocessed/eurovision_data_preprocessed.csv" --output_path="../doc/########.Rmd"
+Run the analysis by running `eurovision_inferential_analysis.R`: \
+`--input_path` should be the file path to the pre-processed data, \
+`--output_dir` should be the path to the directory where the tables will be saved. \
+`Rscript eurovision_inferential_analysis.R --input_path="../data/preprocessed/eurovision_data_preprocessed.csv" --output_path="../doc/########.Rmd"`
 
 ## Dependecies
 
-Python 3.10.6 and packages:
+We have created an environment ([eurovision_env.yaml](https://github.com/UBC-MDS/crdn/blob/main/environment.yaml)) for Python 3.10.6 in which the reproduction of our analysis can be done. To create this environment on your machine run: `conda env create -f eurovision_env.yaml`. Activate it by running: `conda activate eurovision_env`. The packages it uses are listed below:
 
--   docopt==0.7.1
+- docopt==0.7.1
+- ipykernel==6.17.1
+- ipython==7.10.1
+- vega_datasets==0.9.0
+- altair_saver==0.1.0
+- selenium==4.3.0
+- pandas==1.5.1
+- selenium==4.6.0.0
+- pip==22.2.2
+  - pandas_profiling
+  - ipywidgets
+  - vl-convert-python
 
--   ipython==7.10.1
+Aside from this we used the following packages for R:
 
--   vega_datasets==0.9.0
-
--   altair_saver==0.1.0
-
--   selenium==4.3.0
-
--   pandas==1.5.1
-
--   pip==22.2.2
-
-We have also created an [environment.yaml](https://github.com/UBC-MDS/crdn/blob/main/environment.yaml) in which the reproduction of our analysis can be done.
+- tidyverse==1.3.2
 
 ## License
 

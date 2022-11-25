@@ -10,6 +10,8 @@ dependencies:
   - selenium<4.3.0
   - pandas<1.5
   - pip
+  - docopt
   - pip:
     - pandas_profiling
     - ipywidgets
+    - vl-convert-python

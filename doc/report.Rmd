@@ -1,8 +1,11 @@
 ---
 title: "Historical horse population in Canada"
-output: 
+output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: TRUE
+    toc: yes
+    df_print: paged
 bibliography: references.bib
 ---
 
@@ -26,7 +29,7 @@ The report on our data analysis project for DSCI 522 as part of the Master of Da
 
 Eurovision is an annual singing contest that takes place in Europe where each participating country is represented by a contestant performing a song of their choice, and the country which gains the highest number of votes in the final (which is ranked the highest) is elected to be the winner.
 
-In this project, we are going to explore if there is any association between the running order and the rank of a contestant in Eurovision. Does the country that performs their act the last rank higher than the country that performs the first? We are interested in this question because order can potentially have a large effect on the outcome of a competition. For instance, Glejser and Heyndels (2001) [@queen] have shown that the contestants who perform later tend to gain a higher rank from the jury in the Queen Elisabeth Contest. This question is crucial because it is related to the bias in voting and fairness of competitions.
+In this project, we are going to explore if there is any association between the running order and the rank of a contestant in Eurovision. Does the country that performs their act the last rank higher than the country that performs the first? We are interested in this question because order can potentially have a large effect on the outcome of a competition. For instance, [@queen] have shown that the contestants who perform later tend to gain a higher rank from the jury in the Queen Elisabeth Contest. This question is crucial because it is related to the bias in voting and fairness of competitions.
 
 ## Dataset
 
@@ -34,10 +37,19 @@ The dataset we use in this project is retrieved from the [Tidy Tuesday Public Re
 
 ## EDA
 
-In our exploratory data analysis, we will include the following figures:
+In our exploratory data analysis, we have included the following figures:
 
--   A pair-wise correlation of all the numeric columns in the dataset
--   A heatmap of missing values for each column in the dataset
+```{r fig.align='center', out.width="300px", out.height="300px"}
+knitr::include_graphics("../src/eda_data/figures/pair_wise_corr_plot.png")
+```
+
+As we can see from this first plot, there doesn't appear to be a strong correlation between running order and rank.
+
+```{r fig.align='center', out.width="300px", out.height="150px"}
+knitr::include_graphics("../src/eda_data/figures/missing_values_plot.png")
+```
+
+From this plot we can get a general idea of what our data looks like. The image column is missing a lot of data, and around the year 2021 we have a big gap in values because of COVID-19.
 
 ## Proposed Data Analysis
 

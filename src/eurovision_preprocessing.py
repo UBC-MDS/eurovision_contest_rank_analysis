@@ -44,7 +44,7 @@ def main(inputfile, outputfile):
     prepped_df['relative_rank'] = (prepped_df['section_contestants'] - prepped_df['rank'] + 1) / prepped_df['section_contestants']
     prepped_df['rank_quintiles'] = prepped_df['relative_rank'].apply(lambda x: 6 - math.ceil(5 * x))
 
-    output_df = prepped_df.filter(['relative_order', 'first_to_perform', 'last_to_perform', 'relative_rank']).reset_index()
+    output_df = prepped_df.filter(['section','relative_order', 'first_to_perform', 'last_to_perform', 'relative_rank']).reset_index()
     output_df.to_csv(outputfile)
     
 

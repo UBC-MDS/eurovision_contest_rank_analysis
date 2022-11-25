@@ -1,17 +1,18 @@
 ---
 title: "Historical horse population in Canada"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     toc: yes
     df_print: paged
+  pdf_document:
+    toc: yes
 bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(knitr)
+library(tidyverse)
 ```
 
 # Eurovision Rank Analysis
@@ -39,13 +40,13 @@ The dataset we use in this project is retrieved from the [Tidy Tuesday Public Re
 
 In our exploratory data analysis, we have included the following figures:
 
-```{r fig.align='center', out.width="300px", out.height="300px"}
+```{r fig.align='center', out.width="700px"}
 knitr::include_graphics("../src/eda_data/figures/pair_wise_corr_plot.png")
 ```
 
 As we can see from this first plot, there doesn't appear to be a strong correlation between running order and rank.
 
-```{r fig.align='center', out.width="300px", out.height="150px"}
+```{r fig.align='center', out.width="800px"}
 knitr::include_graphics("../src/eda_data/figures/missing_values_plot.png")
 ```
 
@@ -72,6 +73,37 @@ $$
 Since the dataset contains the results for both the semi-finals and the grand-finals, we next look to see if there's a difference between these shows. We separate results from these categories, and carry out the same hypothesis tests.
 
 ## Results
+
+```{r two sample t-test table, message=FALSE, warning=FALSE}
+general_test <- read_csv("../results/t_test_results_general_dataset.csv")
+knitr::kable(general_test, caption = "Table 1. Two sample t-test results for countries that perform first and last vs. the rest of the countries overall") |>
+  kableExtra::kable_styling(full_width = FALSE)
+
+```
+
+From Table 1 that shows our two sample t-test results, it can be seen that the p-value for countries that perform the first and those do not is approximately 0.78, which indicates that the difference of relative ranks between the countries that perform the first and those do not is not statistically significant. Since this p-value is significantly larger than the $\alpha$-level of 0.05, we conclude that we do not have enough evidence to show that there is a difference in the mean relative ranks between the countries that perform first and the rest of them. In contrast, the p-value for the countries that perform the last and those do not is around 0.0004, which is significantly smaller than our $\alpha$-level of 0.05. We can conclude that we have enough evidence to show that there is a significant difference between the countries that perform the last and the rest of them. Therefore we reject the null hypothesis, and conclude that there is a difference in the relative ranks between the countries that perform last and those do not.
+
+```{r two sample t-test table semi final, message=FALSE, warning=FALSE}
+semi_final_test <- read_csv("../results/t_test_results_semi_final_dataset.csv")
+knitr::kable(semi_final_test, caption = "Table 2. Two sample t-test results for countries that perform first and last vs. the rest of the countries in the semi-final") |>
+  kableExtra::kable_styling(full_width = FALSE)
+
+```
+
+From Table 2 which shows the results of the semi-finals, it can be seen that the p-value for the countries that perform the first and those that do not in the semi-final is around 0.58, which is considerably higher than the \$\\alpha\$-level of 0.05. Therefore we fail to reject the null hypothesis that the mean relative ranks of the countries that perform the first and those do not in the semi-final are the same. In contrast, the p-value for the countries that perform last and those do not in the semi-final is approximately 0.00007, which is significantly smaller than the $\alpha$-level of 0.05. Therefore we have enough evidence to reject the null hypothesis and conclude that there is a significant difference in the mean relative ranks between the countries that perform the last and those do not.
+
+```{r two sample t-test table final, message=FALSE, warning=FALSE}
+final_test <- read_csv("../results/t_test_results_final_dataset.csv")
+knitr::kable(final_test, caption = "Table 3. Two sample t-test results for countries that perform first and last vs. the rest of the countries in the final") |>
+  kableExtra::kable_styling(full_width = FALSE)
+
+```
+
+From Table 3 it can be seen that the p-values for both groups are comparable and both are higher than the $\alpha$-level of 0.05, which means that we fail to reject both null hypotheses and conclude that there is no major difference in the mean relative ranks between the countries that perform first or last and the rest of them.
+
+From the two sample t-test results of d the above analyses, we can conclude that the countries that perform the last tend to have a higher rank than the ones that do not perform the last, both overall and in the semi-finals. However, there is no major impact of performing orders on the relative rank in the finals. One possible explanation to this observation could be the fact that the audience do not spend as much time on watching the semi-finals as the finals. Not everyone might start watching the semi-finals from the very beginning of the show, while more audience tend to watch the finals from the beginning to the end. As a result, the last performance might be more memorable to the audience compared to the previous one and ends up getting higher votes in the semi-finals. However, this discrepancy could also be attributed to the much smaller number of data points in the dataset compared to that of the finals.
+
+For future work, we can also build a linear regression model to assess the linear relationship between performing order and rank. In addition, we can conduct simulation test by permutation through bootstrapping and compare the results with the t-tests.
 
 ## Sharing the Results
 

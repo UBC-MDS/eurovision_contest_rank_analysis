@@ -41,9 +41,9 @@ Next, we look at the last performance of the night. We define the null hypothesi
 
 Since the dataset contains the results for both the semi-finals and the grand-finals, we next look to see if there's a difference between these shows. We separate results from these categories, and carry out the same hypothesis tests.
 
-## Sharing the Results 
+## Sharing the Results
 
-Our analysis will be conducted using Python in VS Code or Jupyter notebook where our tables and plots will be stored as outputs in .ipynb notebook files. In order to render all the plots properly, we will also export a pdf version of all the .ipynb notebook files. For sharing purposes, all of our analyses and results will be pushed to our GitHub repository.
+Our analysis will be conducted using Python and R scripts, where any created tables and plots will be stored in relevant directories. The report will use the outputs of these scripts to visualise and convey our findings. In order to render all the plots properly, we will also export a PDF version of this report. For sharing purposes, all of our analyses and results will be pushed to our GitHub repository.
 
 ## Usage
 
@@ -89,7 +89,9 @@ We have created an environment ([eurovision_env.yaml](https://github.com/UBC-MDS
 Aside from this we used the following packages for R:
 
 - tidyverse==1.3.2
-
+- broom==1.0.1
+- docopt==0.7.1
+  
 ## License
 
 The materials of this project are licensed under the MIT License. If re-using/re-mixing please provide attribution and link to this webpage.

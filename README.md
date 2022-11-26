@@ -62,12 +62,12 @@ Create the exploratory analysis plots and save them by running `eurovision_eda.p
 Pre-process the data by running `eurovision_preprocessing.py`: \
 `--input_path` should be the file path to the data being pre-processed, \
 `--output_path` the file path to where the pre-processed data will be saved. \
-`python eurovision_preprocessing.py --input_path="../data/raw/eurovision.csv" --output_path="../data/preprocessed/eurovision_data_preprocessed.csv"`
+`python eurovision_preprocessing.py --input_file="../data/raw/eurovision.csv" --output_file="../data/preprocessed/eurovision_data_preprocessed.csv"`
 
 Run the analysis by running `eurovision_inferential_analysis.R`: \
 `--input_path` should be the file path to the pre-processed data, \
 `--output_dir` should be the path to the directory where the tables will be saved. \
-`Rscript eurovision_inferential_analysis.R --input_path="../data/preprocessed/eurovision_data_preprocessed.csv" --output_path="../doc/########.Rmd"`
+`Rscript eurovision_inferential_analysis.R --input_file="../data/preprocessed/eurovision_data_preprocessed.csv" --output_dir="../results"`
 
 ## Dependecies
 

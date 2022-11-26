@@ -62,7 +62,11 @@ def main(input_file, output_dir):
                 alt.Color('value', title='NaN'),
                 alt.Stroke('value')).properties(
                     width=800,
-                    title="The accurance of Null values in the dataset sorted based on the year")
+                    title="The accurance of Null values in the dataset sorted based on the year").configure_title(
+                        fontSize=20,
+                        font='Cambria',
+                        anchor='start').configure_axis(
+                            labelFont='Cambria')
     
     # Filter the numeric columns for pair-wise correlation
     numeric_cols = raw_df.select_dtypes('number').columns.to_list()
@@ -79,7 +83,10 @@ def main(input_file, output_dir):
                 row=numeric_cols,
                 column=numeric_cols
                 ).properties(
-                    title="Pair-wise correlation of numeric columns in Eurovision dataset")
+                    title="Pair-wise correlation of numeric columns in Eurovision dataset").configure_title(
+                        fontSize=20,
+                        font='Cambria',
+                        anchor='start')
     
     outpt_missing_png = output_dir + '/missing_values_plot.png'
     save_chart(missing_values_plot, outpt_missing_png, 2)

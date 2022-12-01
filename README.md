@@ -26,7 +26,7 @@ The dataset we use in this project is retrieved from the [Tidy Tuesday Public Re
 
 In our exploratory data analysis, we will include the following figures:
 
--   A pair-wise correlation of all the numeric columns in the dataset
+-   A pair-wise correlation of all the numeric columns in the data set
 -   A heatmap of missing values for each column in the dataset
 
 ## Proposed Data Analysis

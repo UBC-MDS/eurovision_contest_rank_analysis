@@ -1,5 +1,5 @@
 ---
-title: "Historical horse population in Canada"
+title: "Eurovision Rank Analysis"
 output:
   html_document:
     toc: yes
@@ -15,8 +15,6 @@ knitr::opts_chunk$set(echo = FALSE)
 library(knitr)
 library(tidyverse)
 ```
-
-# Eurovision Rank Analysis
 
 ## Contributors
 

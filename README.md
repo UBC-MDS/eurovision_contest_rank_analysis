@@ -91,6 +91,7 @@ Aside from this we used the following packages for R:
 - tidyverse==1.3.2
 - broom==1.0.1
 - docopt==0.7.1
+- pandoc==1.12.3 (Follow the installation guide [here](https://pandoc.org/installing.html))
   
 ## License
 

@@ -48,26 +48,40 @@ Our analysis will be conducted using Python and R scripts, where any created tab
 ## Usage
 
 The analysis can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project: 
+### Option1: Running the analysis step-by-step by using commands
+After cloning the repository, navigate to the repository's root folder in CLI and run the steps below:
 
-Download the data by running `pull_data.R`: \
+1. Download the data by running `src/pull_data.R`: \
 `--file_path` should be the path where the data will be saved, \
 `--url` should be the link to the data. \
-`Rscript pull_data.R --file_path="../data/raw/eurovision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"`
+`Rscript src/pull_data.R --file_path="data/raw/eurovision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"`
 
-Create the exploratory analysis plots and save them by running `eurovision_eda.py`: \
-`--input_path` should be the file path to the raw data, \
+2. Create the exploratory analysis plots and save them by running `src/eurovision_eda.py`: \
+`--input_file` should be the file address the raw data, \
 `--output_dir` should be the path to the directory where the plots will be saved. \
-`python eurovision_eda.py --input_file="../data/raw/eurovision.csv" --output_dir="eda_data/figures"`
+`python src/eurovision_eda.py --input_file="data/raw/eurovision.csv" --output_dir="src/eda_data/figures"`
 
-Pre-process the data by running `eurovision_preprocessing.py`: \
-`--input_path` should be the file path to the data being pre-processed, \
+3. Pre-process the data by running `src/eurovision_eda.py`: \
+`--input_file` should be the file path to the data being pre-processed, \
 `--output_path` the file path to where the pre-processed data will be saved. \
-`python eurovision_preprocessing.py --input_file="../data/raw/eurovision.csv" --output_file="../data/preprocessed/eurovision_data_preprocessed.csv"`
+`python src/eurovision_preprocessing.py --input_file="data/raw/eurovision.csv" --output_file="data/preprocessed/eurovision_data_preprocessed.csv"`
 
-Run the analysis by running `eurovision_inferential_analysis.R`: \
+4. Run the analysis by running `src/eurovision_inferential_analysis.R`: \
 `--input_path` should be the file path to the pre-processed data, \
 `--output_dir` should be the path to the directory where the tables will be saved. \
-`Rscript eurovision_inferential_analysis.R --input_file="../data/preprocessed/eurovision_data_preprocessed.csv" --output_dir="../results"`
+`Rscript src/eurovision_inferential_analysis.R --input_file="data/preprocessed/eurovision_data_preprocessed.csv" --output_dir="results"`
+
+### Option2: Running the make file
+Before running the analysis through the make file, please use the code below to reset the repository-generated files. 
+In the terminal, browse to the root folder of the repository and run:
+
+    make clean
+
+After using the `make clean` command to reproduce the analysis, use the command below in the repository's root folder.
+Please ensure that you have followed the dependencies installation.
+
+    make all
+
 
 ## Dependecies
 

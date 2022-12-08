@@ -35,7 +35,7 @@ In this project, we are going to explore if there is any association between the
 
 ## Dataset
 
-The dataset we use in this project is retrieved from the [Tidy Tuesday Public Repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-05-17) [@tidytue], and the original data was sourced from the [Eurovision Song Contenst Official Website](https://eurovision.tv/) [@eurovision]. The data was further cleaned up and scraped by Tanya Shapiro and Bob Rudis and contributed to the Tidy Tuesday Repository.
+The dataset we use in this project is retrieved from the [Tidy Tuesday Public Repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-05-17) [@tidytue], and the original data was sourced from the [Eurovision Song Contest Official Website](https://eurovision.tv/) [@eurovision]. The data was further cleaned up and scraped by Tanya Shapiro and Bob Rudis and contributed to the Tidy Tuesday Repository.
 
 ## EDA
 
@@ -45,9 +45,7 @@ In our exploratory data analysis, we have included the following figures:
 knitr::include_graphics("../src/eda_data/figures/pair_wise_corr_plot.png")
 ```
 
-
 As we can see from this first plot, there doesn't appear to be a strong correlation between running order and rank.
-
 
 ```{r fig.align='center', out.width="100%", fig.cap = "Figure2: The accurance of null values in the dataset"}
 knitr::include_graphics("../src/eda_data/figures/missing_values_plot.png")
@@ -73,7 +71,7 @@ $$
 H_0 : \mu_\text{last} = \mu_\text{rest} \text{ vs } H_a : \mu_\text{last} \neq \mu_\text{rest}
 $$
 
-Since the dataset contains the results for both the semi-finals and the grand-finals, we next look to see if there's a difference between these shows. We separate results from these categories, and carry out the same hypothesis tests.
+The data contains the results for both the semi-final and the grand-final rounds. This means the same performance may be double counted if it was performed in both rounds during the same year. To avoid breaking the independence assumption, in addition to running the t-test on the whole dataset, we will run separate tests for the semi-finals and grand-finals. We must be cautious making strong claims based on the whole dataset because of this double counting, but these concerns are removed if we look only at one round independently.
 
 ## Results
 

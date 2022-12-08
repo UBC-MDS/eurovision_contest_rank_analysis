@@ -10,7 +10,7 @@
 # Example usage:
 # make all
 
-all : data/raw/eurovision.csv src/eda_data/figures data/preprocessed/eurovision_data_preprocessed.csv results doc/report.html
+all : doc/report.html
 
 # The analysis can be reproduced by cloning the GitHub repository, installing
 # the dependencies listed in the README, and running this Makefile:

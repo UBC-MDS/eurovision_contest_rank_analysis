@@ -77,7 +77,7 @@ The data contains the results for both the semi-final and the grand-final rounds
 
 ```{r two sample t-test table, message=FALSE, warning=FALSE}
 general_test <- read_csv("../results/t_test_results_general_dataset.csv")
-knitr::kable(general_test, caption = "Table 1. Two sample t-test results for countries that perform first and last vs. the rest of the countries overall") |>
+knitr::kable(general_test, caption = "Table 1. Two sample t-test results for countries that perform first and last vs. the rest of the countries overall") %>%
   kableExtra::kable_classic(full_width = F, lightable_options = "basic", html_font = "Cambria")
 
 ```
@@ -86,7 +86,7 @@ From Table 1 that shows our two sample t-test results, it can be seen that the p
 
 ```{r two sample t-test table semi final, message=FALSE, warning=FALSE}
 semi_final_test <- read_csv("../results/t_test_results_semi_final_dataset.csv")
-knitr::kable(semi_final_test, caption = "Table 2. Two sample t-test results for countries that perform first and last vs. the rest of the countries in the semi-final") |>
+knitr::kable(semi_final_test, caption = "Table 2. Two sample t-test results for countries that perform first and last vs. the rest of the countries in the semi-final") %>%
   kableExtra::kable_classic(full_width = F, lightable_options = "basic", html_font = "Cambria")
 
 ```
@@ -95,7 +95,7 @@ From Table 2 which shows the results of the semi-finals, it can be seen that the
 
 ```{r two sample t-test table final, message=FALSE, warning=FALSE}
 final_test <- read_csv("../results/t_test_results_final_dataset.csv")
-knitr::kable(final_test, caption = "Table 3. Two sample t-test results for countries that perform first and last vs. the rest of the countries in the final") |>
+knitr::kable(final_test, caption = "Table 3. Two sample t-test results for countries that perform first and last vs. the rest of the countries in the final") %>%
   kableExtra::kable_classic(full_width = F, lightable_options = "basic", html_font = "Cambria")
 
 ```

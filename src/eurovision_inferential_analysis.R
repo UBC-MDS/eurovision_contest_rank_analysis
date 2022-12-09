@@ -33,7 +33,7 @@ main <- function(input_file, output_dir) {
     alternative = 'two.side',
     conf.level = 0.95,
     var.equal = FALSE
-    ) |>
+    ) %>%
     tidy()
 
   # Perform two-sample t-test on the entire dataset between the countries that perform the last and those that do not 
@@ -44,7 +44,7 @@ main <- function(input_file, output_dir) {
     alternative = 'two.side',
     conf.level = 0.95,
     var.equal = FALSE
-    ) |>
+    ) %>%
     tidy()
 
   # Compile the results of the two t-tests on the entire dataset
@@ -52,7 +52,7 @@ main <- function(input_file, output_dir) {
 
 
   # Filter the data to only the results of semi finals
-  semi_final_data <- eurovision_data |>
+  semi_final_data <- eurovision_data %>%
     filter(section == "first-semi-final" | section == "second-semi-final" | section == "semi-final")
 
   # Perform two-sample t-test on the semi-final data between the countries that perform the first and those that do not
@@ -63,7 +63,7 @@ main <- function(input_file, output_dir) {
     alternative = 'two.sided',
     conf.level = 0.95,
     var.equal = FALSE
-    ) |>
+    ) %>%
     tidy()
 
   # Perform two-sample t-test on the semi-final data between the countries that perform the last and those that do not
@@ -74,7 +74,7 @@ main <- function(input_file, output_dir) {
     alternative = 'two.side',
     conf.level = 0.95,
     var.equal = FALSE
-    ) |>
+    ) %>%
     tidy()
 
   # Compile the results of the two t-tests on the semi-final data
@@ -82,7 +82,7 @@ main <- function(input_file, output_dir) {
 
 
   # Filter the data to only the results of finals
-  final_data <- eurovision_data |>
+  final_data <- eurovision_data %>%
     filter(section == "grand-final" | section == "final")
 
   # Perform two-sample t-test on the final data between the countries that perform the first and those that do not 
@@ -93,7 +93,7 @@ main <- function(input_file, output_dir) {
     alternative = 'two.sided',
     conf.level = 0.95,
     var.equal = FALSE
-    ) |>
+    ) %>%
     tidy()
 
   # Perform two-sample t-test on the final data between the countries that perform the last and those that do not 
@@ -104,7 +104,7 @@ main <- function(input_file, output_dir) {
     alternative = 'two.side',
     conf.level = 0.95,
     var.equal = FALSE
-    ) |>
+    ) %>%
     tidy()
 
   # Compile the results of the two t-tests on the final data

@@ -98,11 +98,11 @@ After pulling the docekr file, In the CLI browse to the repository's root folder
 
 To clean the results of the analysis that they were produced before you need to run the make clean command to clean the results folder. Navigate to the root repository of the git folde and run:
 
-- If you are using Macbook devices with M1 or M2 chips,please use:
+If you are using Macbook devices with M1 or M2 chips,please use:
 
     docker run -it --rm -v /$(pwd):/home/eurovision mrnabiz/eurovision_contest_rank_analysis_docker_file make -C /home/eurovision clean
 
-- If you are using other Macbook, Windows or Linux devices please load the image first with the command:
+If you are using other Macbook, Windows or Linux devices please load the image first with the command:
 
     docker run -it --rm -v /$(pwd):/home/eurovision mrnabiz/eurovision_contest_rank_analysis_docker_file
 

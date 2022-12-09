@@ -120,7 +120,7 @@ Aside from this we used the following packages for R:
 
 ## Makefile Dependency Diagram
 
-![](doc/Makefile.png){width="767"}
+## ![dependency_graph.png](doc/Makefile.png) 
 
 ## License
 

@@ -47,7 +47,8 @@ Our analysis will be conducted using Python and R scripts, where any created tab
 
 ## Usage
 
-The analysis can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project: \### Option 1: Running the analysis step-by-step by using commands After cloning the repository, navigate to the repository's root folder in CLI and run the steps below:
+The analysis can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project:
+### Option 1: Running the analysis step-by-step by using commands After cloning the repository, navigate to the repository's root folder in CLI and run the steps below:
 
 1.  Download the data by running `src/pull_data.R`:\
     `--file_path` should be the path where the data will be saved,\
@@ -82,6 +83,32 @@ Before running the analysis through the make file, please use the code below to 
 After using the `make clean` command to reproduce the analysis, use the command below in the repository's root folder. Please ensure that you have followed the dependencies installation.
 
     make all
+
+### Option 3: Using the Dockerfile
+
+Docker files are a set of hardware and software virtualization to simulate an environment. In order to make your job easier, we have made a docker file and published it on Docker Hub. Follow the steps below to reporduce the analysis.
+
+At first, install [Docker](https://www.docker.com/get-started/) and set up your account. Then clone this GitHub repository and run the following command at the command line/terminal from the root directory of this project:
+
+    docker pull mrnabiz/eurovision_contest_rank_analysis_docker_file:latest
+
+After pulling the docekr file, In the CLI browse to the repository's root folder and mount the docker image as a docker container with the command (The docker image is compatible with M1 and M2 apple chips too):
+
+    docker run -it --rm -v /$(pwd):/home/eurovision mrnabiz/eurovision_contest_rank_analysis_docker_file make -C /home/eurovision all
+
+To clean the results of the analysis that they were produced before you need to run the make clean command to clean the results folder. Navigate to the root repository of the git folde and run:
+
+- If you are using Macbook devices with M1 or M2 chips,please use:
+
+    docker run -it --rm -v /$(pwd):/home/eurovision mrnabiz/eurovision_contest_rank_analysis_docker_file make -C /home/eurovision clean
+
+- If you are using other Macbook, Windows or Linux devices please load the image first with the command:
+
+    docker run -it --rm -v /$(pwd):/home/eurovision mrnabiz/eurovision_contest_rank_analysis_docker_file
+
+Then, you'll find yourself in the loaded container and with the command below you will be able to clean the reults folder.
+
+    make -C /home/eurovision clean
 
 ## Dependecies
 

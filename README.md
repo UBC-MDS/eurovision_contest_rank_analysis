@@ -43,35 +43,39 @@ Since the dataset contains the results for both the semi-finals and the grand-fi
 
 ## Sharing the Results
 
-Our analysis will be conducted using Python and R scripts, where any created tables and plots will be stored in relevant directories. The report will use the outputs of these scripts to visualise and convey our findings. In order to render all the plots properly, we will also export a PDF version of this report. For sharing purposes, all of our analyses and results will be pushed to our GitHub repository.
+Our analysis will be conducted using Python and R scripts, where any created tables and plots will be stored in relevant directories. The report will use the outputs of these scripts to visualise and convey our findings. In order to render all the plots properly, we will also export a HTML version of this report. For sharing purposes, all of our analyses and results will be pushed to our GitHub repository. [The report can be found here.](https://ubc-mds.github.io/eurovision_contest_rank_analysis/doc/report.html)
 
 ## Usage
 
 The analysis can be reproduced by cloning the GitHub repository, installing the dependencies listed below and running the following commands at the terminal from the root directory of this project: 
-### Option1: Running the analysis step-by-step by using commands
+### Option 1: Running the analysis step-by-step by using commands
 After cloning the repository, navigate to the repository's root folder in CLI and run the steps below:
 
 1. Download the data by running `src/pull_data.R`: \
 `--file_path` should be the path where the data will be saved, \
-`--url` should be the link to the data. \
-`Rscript src/pull_data.R --file_path="data/raw/eurovision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"`
+`--url` should be the link to the data
+
+        Rscript src/pull_data.R --file_path="data/raw/eurovision.csv" --url="https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eurovision.csv"
 
 2. Create the exploratory analysis plots and save them by running `src/eurovision_eda.py`: \
 `--input_file` should be the file address the raw data, \
-`--output_dir` should be the path to the directory where the plots will be saved. \
-`python src/eurovision_eda.py --input_file="data/raw/eurovision.csv" --output_dir="src/eda_data/figures"`
+`--output_dir` should be the path to the directory where the plots will be saved.
+
+        python src/eurovision_eda.py --input_file="data/raw/eurovision.csv" --output_dir="src/eda_data/figures"
 
 3. Pre-process the data by running `src/eurovision_eda.py`: \
 `--input_file` should be the file path to the data being pre-processed, \
-`--output_path` the file path to where the pre-processed data will be saved. \
-`python src/eurovision_preprocessing.py --input_file="data/raw/eurovision.csv" --output_file="data/preprocessed/eurovision_data_preprocessed.csv"`
+`--output_path` the file path to where the pre-processed data will be saved.
+
+        python src/eurovision_preprocessing.py --input_file="data/raw/eurovision.csv" --output_file="data/preprocessed/eurovision_data_preprocessed.csv"
 
 4. Run the analysis by running `src/eurovision_inferential_analysis.R`: \
 `--input_path` should be the file path to the pre-processed data, \
-`--output_dir` should be the path to the directory where the tables will be saved. \
-`Rscript src/eurovision_inferential_analysis.R --input_file="data/preprocessed/eurovision_data_preprocessed.csv" --output_dir="results"`
+`--output_dir` should be the path to the directory where the tables will be saved.
 
-### Option2: Running the make file
+        Rscript src/eurovision_inferential_analysis.R --input_file="data/preprocessed/eurovision_data_preprocessed.csv" --output_dir="results"
+
+### Option 2: Running the make file
 Before running the analysis through the make file, please use the code below to reset the repository-generated files. 
 In the terminal, browse to the root folder of the repository and run:
 
@@ -85,7 +89,15 @@ Please ensure that you have followed the dependencies installation.
 
 ## Dependecies
 
-We have created an environment ([eurovision_env.yaml](https://github.com/UBC-MDS/crdn/blob/main/environment.yaml)) for Python 3.10.6 in which the reproduction of our analysis can be done. To create this environment on your machine run: `conda env create -f eurovision_env.yaml`. Activate it by running: `conda activate eurovision_env`. The packages it uses are listed below:
+We have created an environment ([eurovision_env.yaml](https://github.com/UBC-MDS/crdn/blob/main/environment.yaml)) for Python 3.10.6 in which the reproduction of our analysis can be done. To create this environment on your machine run: 
+
+    conda env create -f eurovision_env.yaml
+
+Activate it by running:
+
+    conda activate eurovision_env
+
+The packages it uses are listed below:
 
 - docopt==0.7.1
 - ipykernel==6.17.1
